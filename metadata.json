@@ -1,0 +1,6 @@
+{
+  "name": "AsNexa Technologies",
+  "description": "Premier AI consulting agency and autonomous AI systems: Digital FTEs, sub-300ms voice agents, enterprise RAG, and interactive ROI calculator with 3D animated visualizers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

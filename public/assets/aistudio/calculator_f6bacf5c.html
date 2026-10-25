@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital FTE ROI Calculator | AsNexa Technologies</title>
+  <meta name="description" content="Calculate your annual operational cost savings and productivity gains by deploying AsNexa autonomous Digital FTEs.">
+  <meta name="keywords" content="AI automation ROI calculator, business automation savings, Digital FTE cost calculator">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://asnexa.com/calculator.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <style>
+    .glass-light { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .text-gradient-blue { background: linear-gradient(135deg, #1E293B 20%, #3B49DF 70%, #1D63FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .cosmic-grid { background-size: 50px 50px; background-image: linear-gradient(to right, rgba(29, 99, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(29, 99, 255, 0.05) 1px, transparent 1px); }
+  </style>
+</head>
+<body class="bg-white text-slate-800 font-sans antialiased relative min-h-screen">
+
+  <nav class="sticky top-0 z-40 glass-light border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center space-x-3 group">
+          <img src="asnexa.jpg.jpeg" alt="AsNexa Logo" class="w-11 h-11 rounded-xl object-cover shadow-md shadow-blue-500/20">
+          <div>
+            <span class="font-heading font-extrabold text-lg tracking-tight text-slate-900 block leading-none">ASNEXA</span>
+            <span class="text-[9px] tracking-widest font-semibold uppercase text-blue-600 block mt-1">TECHNOLOGIES</span>
+          </div>
+        </a>
+
+        <div class="hidden lg:flex items-center space-x-6">
+          <a href="index.html" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">Home</a>
+          <a href="services.html" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">Services</a>
+          <a href="industries.html" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">Industries</a>
+          <a href="sandbox.html" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">Live Sandbox</a>
+          <a href="calculator.html" class="text-sm font-medium text-blue-600 transition-colors">ROI Calculator</a>
+          <a href="portfolio.html" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">Portfolio</a>
+          <a href="faq.html" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">FAQ</a>
+          <a href="company.html" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">Company</a>
+          <a href="contact.html" class="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">Contact</a>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-3">
+          <a href="contact.html" class="border border-slate-300 text-slate-700 hover:bg-slate-100 rounded-full px-5 py-2 text-sm font-medium transition-colors">Contact us</a>
+          <a href="contact.html" class="bg-[#1D63FF] hover:bg-blue-700 text-white rounded-full px-6 py-2.5 text-sm font-semibold shadow-md shadow-blue-500/25 transition-all">Book a call</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="py-20 bg-gradient-to-b from-slate-50 via-white to-blue-50/40 text-slate-900 cosmic-grid border-b border-slate-200 text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <span class="text-xs font-mono uppercase tracking-widest text-blue-600 font-semibold">Financial Model</span>
+      <h1 class="font-heading text-4xl sm:text-6xl font-extrabold tracking-tight">
+        Digital FTE <span class="text-gradient-blue">ROI Calculator</span>
+      </h1>
+      <p class="text-slate-600 text-base sm:text-lg">
+        Estimate your annual operational cost savings and productivity gains by deploying AsNexa autonomous Digital FTEs.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white text-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-slate-50 p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-semibold">
+              <span class="text-slate-700">Operations Team Size</span>
+              <span id="teamSizeVal" class="text-blue-600 font-mono">10 members</span>
+            </div>
+            <input id="teamSizeRange" type="range" min="1" max="100" value="10" class="w-full accent-blue-600 bg-slate-200 rounded-lg cursor-pointer">
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-semibold">
+              <span class="text-slate-700">Repetitive Task Hours / Week per Person</span>
+              <span id="hoursVal" class="text-blue-600 font-mono">15 hrs/week</span>
+            </div>
+            <input id="hoursRange" type="range" min="5" max="35" value="15" class="w-full accent-blue-600 bg-slate-200 rounded-lg cursor-pointer">
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-semibold">
+              <span class="text-slate-700">Average Hourly Employee Cost ($)</span>
+              <span id="costVal" class="text-blue-600 font-mono">$35 / hr</span>
+            </div>
+            <input id="costRange" type="range" min="15" max="150" value="35" class="w-full accent-blue-600 bg-slate-200 rounded-lg cursor-pointer">
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-slate-900 text-white p-6 rounded-2xl border border-slate-800 space-y-6 text-center">
+          <div>
+            <span class="text-xs uppercase tracking-wider text-slate-400 block mb-1">Estimated Annual Net Savings</span>
+            <span id="savingsOutput" class="font-heading text-4xl sm:text-5xl font-extrabold text-blue-400">$191,100</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800 text-xs">
+            <div>
+              <span class="text-slate-400 block mb-1">Hours Liberated</span>
+              <strong id="hoursOutput" class="text-white font-mono text-sm">7,800 hrs/yr</strong>
+            </div>
+            <div>
+              <span class="text-slate-400 block mb-1">Est. Payback Period</span>
+              <strong id="paybackOutput" class="text-blue-400 font-mono text-sm">17 Days</strong>
+            </div>
+          </div>
+
+          <a href="contact.html" class="block w-full bg-[#1D63FF] hover:bg-blue-600 text-white font-bold text-xs py-3.5 rounded-xl shadow-md transition-all text-center">
+            Deploy Digital FTE for This Team ↗
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Chatbot Widget -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-3">
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top" class="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-700 shadow-lg hover:bg-slate-50 flex items-center justify-center font-bold">↑</button>
+    <button id="robotAssistantBtn" aria-label="Open AI Assistant" class="relative w-16 h-16 rounded-full bg-gradient-to-br from-[#1D63FF] to-blue-700 text-white shadow-2xl hover:scale-110 transition-transform flex items-center justify-center text-2xl animate-bounce">
+      🤖
+      <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-rose-500 text-white text-[10px] font-bold flex items-center justify-center shadow-md">1</span>
+    </button>
+  </div>
+
+  <div id="aiConciergeDrawer" class="fixed bottom-24 right-6 z-50 hidden w-80 sm:w-96 bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+    <div class="p-4 bg-slate-900 text-white border-b border-slate-800 flex items-center justify-between">
+      <div class="flex items-center space-x-2.5">
+        <div class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></div>
+        <h4 class="font-heading font-bold text-white text-sm">AsNexa AI Concierge</h4>
+      </div>
+      <button id="closeConciergeBtn" class="text-slate-400 hover:text-white font-bold text-sm">✕</button>
+    </div>
+    <div id="conciergeMessages" class="p-4 space-y-3 h-64 overflow-y-auto text-xs text-slate-700 font-mono">
+      <div class="bg-blue-50 p-3 rounded-xl border border-blue-100 text-slate-800">
+        👋 Hello! Calculate your operational ROI with our interactive tool above!
+      </div>
+    </div>
+    <div class="p-3 bg-slate-50 border-t border-slate-200 flex space-x-2">
+      <input id="conciergeInput" type="text" placeholder="Type a question..." class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:border-blue-600">
+      <button id="conciergeSendBtn" class="bg-[#1D63FF] text-white px-4 py-2 rounded-xl text-xs font-semibold">Send</button>
+    </div>
+  </div>
+
+  <footer class="bg-slate-900 text-slate-300 text-xs py-14 border-t border-slate-800 text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p>&copy; 2026 AsNexa Technologies. All rights reserved. • Digital FTE ROI Calculator.</p>
+    </div>
+  </footer>
+
+  <script>
+    const teamSizeRange = document.getElementById('teamSizeRange');
+    const hoursRange = document.getElementById('hoursRange');
+    const costRange = document.getElementById('costRange');
+    const teamSizeVal = document.getElementById('teamSizeVal');
+    const hoursVal = document.getElementById('hoursVal');
+    const costVal = document.getElementById('costVal');
+    const savingsOutput = document.getElementById('savingsOutput');
+    const hoursOutput = document.getElementById('hoursOutput');
+    const paybackOutput = document.getElementById('paybackOutput');
+
+    function updateCalculator() {
+      const team = parseInt(teamSizeRange.value);
+      const hours = parseInt(hoursRange.value);
+      const cost = parseInt(costRange.value);
+
+      teamSizeVal.textContent = `${team} members`;
+      hoursVal.textContent = `${hours} hrs/week`;
+      costVal.textContent = `$${cost} / hr`;
+
+      const annualManualCost = team * hours * cost * 52;
+      const annualSavings = Math.round(annualManualCost * 0.70);
+      const totalHoursSaved = team * hours * 52;
+      const paybackDays = Math.max(14, Math.round(9000 / (annualSavings / 365)));
+
+      savingsOutput.textContent = `$${annualSavings.toLocaleString()}`;
+      hoursOutput.textContent = `${totalHoursSaved.toLocaleString()} hrs/yr`;
+      paybackOutput.textContent = `${paybackDays} Days`;
+    }
+
+    [teamSizeRange, hoursRange, costRange].forEach(input => {
+      input.addEventListener('input', updateCalculator);
+    });
+    updateCalculator();
+
+    const robotAssistantBtn = document.getElementById('robotAssistantBtn');
+    const aiConciergeDrawer = document.getElementById('aiConciergeDrawer');
+    const closeConciergeBtn = document.getElementById('closeConciergeBtn');
+    const conciergeInput = document.getElementById('conciergeInput');
+    const conciergeSendBtn = document.getElementById('conciergeSendBtn');
+    const conciergeMessages = document.getElementById('conciergeMessages');
+
+    robotAssistantBtn.addEventListener('click', () => aiConciergeDrawer.classList.toggle('hidden'));
+    closeConciergeBtn.addEventListener('click', () => aiConciergeDrawer.classList.add('hidden'));
+
+    function sendConciergeMessage() {
+      const q = conciergeInput.value.trim();
+      if (!q) return;
+      conciergeMessages.innerHTML += `<div class="bg-blue-600 text-white p-2.5 rounded-xl text-right">You: ${q}</div>`;
+      conciergeInput.value = '';
+      setTimeout(() => {
+        conciergeMessages.innerHTML += `<div class="bg-blue-50 p-2.5 rounded-xl border border-blue-100 text-slate-800">AsNexa AI: Our Digital FTEs typically achieve payback in under 3 weeks. Book a call to learn more!</div>`;
+        conciergeMessages.scrollTop = conciergeMessages.scrollHeight;
+      }, 400);
+    }
+    conciergeSendBtn.addEventListener('click', sendConciergeMessage);
+    conciergeInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendConciergeMessage(); });
+  </script>
+</body>
+</html>
